@@ -11,11 +11,11 @@ from tkinter import simpledialog, Radiobutton, Label, Entry, Text, Scrollbar, Bu
 import json
 
 # Загрузка переводов из файла
-translations = {}
+trs = {}
 for file in os.listdir():
     if file.endswith(".lang"):
         with open(file, 'r', encoding='utf-8') as f:
-            translations = json.load(f)
+            trs = json.load(f)
 
 dataset_dir="dataset"
 output_dir = "output"
@@ -23,35 +23,35 @@ model_dir = "model_save.pth"
 
 def get_user_input():
     root = tk.Tk()
-    root.geometry("350x500")
-    root.title(translations["training_settings"])
+    root.geometry("380x500")
+    root.title(trs["training_settings"])
     root.resizable(False, False)
 
-    Label(root, text=translations["enter_epochs"]).pack(pady=10)
+    Label(root, text=trs["enter_epochs"]).pack(pady=10)
     n_epochs_entry = Entry(root)
     n_epochs_entry.pack()
 
-    Label(root, text=translations["enter_batch_size"]).pack(pady=10)
+    Label(root, text=trs["enter_batch_size"]).pack(pady=10)
     batch_size_entry = Entry(root)
     batch_size_entry.pack()
 
-    Label(root, text=translations["enter_image_size_x"]).pack(pady=10)
+    Label(root, text=trs["enter_image_size_x"]).pack(pady=10)
     image_size_x_entry = Entry(root)
     image_size_x_entry.pack()
 
-    Label(root, text=translations["enter_image_size_y"]).pack(pady=10)
+    Label(root, text=trs["enter_image_size_y"]).pack(pady=10)
     image_size_y_entry = Entry(root)
     image_size_y_entry.pack()
 
     device_choice = tk.StringVar(value="cpu")
-    Label(root, text=translations["choose_device"]).pack(pady=10)
+    Label(root, text=trs["choose_device"]).pack(pady=10)
     Radiobutton(root, text="CPU", variable=device_choice, value="cpu").pack()
     Radiobutton(root, text="GPU", variable=device_choice, value="gpu").pack()
 
     start_choice = tk.StringVar(value="new")
-    Label(root, text=translations["choose_start_mode"]).pack(pady=10)
-    Radiobutton(root, text=translations["new_training"], variable=start_choice, value="new").pack()
-    Radiobutton(root, text=translations["resume_training"], variable=start_choice, value="resume").pack()
+    Label(root, text=trs["choose_start_mode"]).pack(pady=10)
+    Radiobutton(root, text=trs["new_training"], variable=start_choice, value="new").pack()
+    Radiobutton(root, text=trs["resume_training"], variable=start_choice, value="resume").pack()
 
     def submit():
         global n_epochs, batch_size, image_size_x, image_size_y, device_choice_value, start_choice_value
@@ -64,13 +64,13 @@ def get_user_input():
         dataset_dir = 'dataset'
         if not os.path.exists(dataset_dir):
             os.makedirs(dataset_dir)
-            messagebox.showinfo(translations["info"], translations["dataset_not_found"])
+            messagebox.showinfo(trs["info"], trs["dataset_not_found"])
         elif not os.listdir(dataset_dir):
-            messagebox.showinfo(translations["info"], translations["dataset_empty"])
+            messagebox.showinfo(trs["info"], trs["dataset_empty"])
         else:
             root.quit()
 
-    Button(root, text=translations["start"], command=submit).pack(pady=10)
+    Button(root, text=trs["start"], command=submit).pack(pady=10)
 
     root.mainloop()
 
@@ -82,8 +82,8 @@ def training_completed():
     root = tk.Tk()
     root.geometry("200x100")
     root.resizable(False, False)
-    root.title(translations["training_completed"])
-    Label(root, text=translations["training_completed"]).pack(pady=10)
+    root.title(trs["training_completed"])
+    Label(root, text=trs["training_completed"]).pack(pady=10)
     Button(root, text="ОК", command=root.quit).pack(pady=10)
     root.mainloop()
 
@@ -190,7 +190,7 @@ def train_model(start_epoch=0):
             loss_gen.backward()
             gen_opt.step()
 
-        print(f"{translations['epoch']} {epoch+1} {translations['out_of']} {n_epochs}, {translations['gen_loss']}: {loss_gen.item()}, {translations['disc_loss']}: {loss_disc.item()}")
+        print(f"{trs['epoch']} {epoch+1} {trs['out_of']} {n_epochs}, {trs['gen_loss']}: {loss_gen.item()}, {trs['disc_loss']}: {loss_disc.item()}")
 
         if epoch % 10 == 0:
             torch.save({
@@ -205,7 +205,7 @@ def train_model(start_epoch=0):
     training_completed()
 
 if os.path.isfile(model_dir) and start_choice == "resume":
-    print(translations["model_found"])
+    print(trs["model_found"])
     checkpoint = torch.load(model_dir)
     gen.load_state_dict(checkpoint['gen_state_dict'])
     gen_opt.load_state_dict(checkpoint['gen_opt_state_dict'])
@@ -214,5 +214,5 @@ if os.path.isfile(model_dir) and start_choice == "resume":
     start_epoch = checkpoint['epoch']
     train_model(start_epoch)
 else:
-    print(translations["model_not_found"])
+    print(trs["model_not_found"])
     train_model()
