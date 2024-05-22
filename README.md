@@ -14,8 +14,9 @@ This project is an implementation of a Deep Convolutional Generative Adversarial
 
 Install the necessary libraries using the following commands:
 
-1ㅤㅤ```pip install nvidia-cudnn-cu12 pillow```
+**1** For all systems --> ```pip install nvidia-cudnn-cu12 pillow```
 
-2.1 For Linuxㅤㅤ--> ```pip install torch torchvision```
+**2.1** For Linuxㅤㅤ--> ```pip install torch torchvision```
 
-2.2 For Windows --> ```pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121```
+**2.2** For Windows --> ```pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121```
+
