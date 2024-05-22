@@ -7,7 +7,7 @@ from torchvision.utils import save_image
 from torch.utils.data import DataLoader
 from PIL import Image
 import tkinter as tk
-from tkinter import simpledialog, Radiobutton, Label, Entry, Text, Scrollbar, Button, messagebox
+from tkinter import Radiobutton, Label, Entry, Button, messagebox
 import json
 
 # Загрузка переводов из файла
@@ -21,27 +21,22 @@ dataset_dir="dataset"
 output_dir = "output"
 model_dir = "model_save.pth"
 
+def create_label_and_entry(root, text):
+    Label(root, text=trs[text]).pack(pady=10)
+    entry = Entry(root)
+    entry.pack()
+    return entry
+
 def get_user_input():
     root = tk.Tk()
     root.geometry("380x500")
     root.title(trs["training_settings"])
     root.resizable(False, False)
 
-    Label(root, text=trs["enter_epochs"]).pack(pady=10)
-    n_epochs_entry = Entry(root)
-    n_epochs_entry.pack()
-
-    Label(root, text=trs["enter_batch_size"]).pack(pady=10)
-    batch_size_entry = Entry(root)
-    batch_size_entry.pack()
-
-    Label(root, text=trs["enter_image_size_x"]).pack(pady=10)
-    image_size_x_entry = Entry(root)
-    image_size_x_entry.pack()
-
-    Label(root, text=trs["enter_image_size_y"]).pack(pady=10)
-    image_size_y_entry = Entry(root)
-    image_size_y_entry.pack()
+    n_epochs_entry = create_label_and_entry(root, "enter_epochs")
+    batch_size_entry = create_label_and_entry(root, "enter_batch_size")
+    image_size_x_entry = create_label_and_entry(root, "enter_image_size_x")
+    image_size_y_entry = create_label_and_entry(root, "enter_image_size_y")
 
     device_choice = tk.StringVar(value="cpu")
     Label(root, text=trs["choose_device"]).pack(pady=10)
@@ -70,7 +65,7 @@ def get_user_input():
         else:
             root.quit()
 
-    Button(root, text=trs["start"], command=submit).pack(pady=10)
+    Button(root, text=trs["start"], command=submit, font=("Arial", 20), width=20, height=3).pack(pady=10)
 
     root.mainloop()
 
