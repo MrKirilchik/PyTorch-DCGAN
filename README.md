@@ -1,4 +1,4 @@
-## DCGAN with PyTorch and Tkinter
+# DCGAN with PyTorch and Tkinter
 
 This project is an implementation of a Deep Convolutional Generative Adversarial Network (DCGAN) using PyTorch. It includes a Tkinter-based interface for setting the training parameters.
 
