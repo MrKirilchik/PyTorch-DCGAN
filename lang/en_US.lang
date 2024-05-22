@@ -8,6 +8,7 @@
     "choose_start_mode": "Choose to start training from beginning or from save:",
     "new_training": "New Training",
     "resume_training": "Resume from Save",
+    "generate_from_save": "Generate from a trained model",
     "start": "Start",
     "info": "Information",
     "dataset_not_found": "The 'dataset' folder was not found, creating a new one. Add data and click 'Start' again.",
