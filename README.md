@@ -13,6 +13,6 @@ This project is an implementation of a Deep Convolutional Generative Adversarial
 
 Install the necessary libraries using the following commands:
 
-For Linux   --> ```pip install nvidia-cudnn-cu12 pillow torch torchvision```
+For Linux ㅤ--> ```pip install nvidia-cudnn-cu12 pillow torch torchvision```
 
 For Windows --> ```pip install nvidia-cudnn-cu12 pillow torch torchvision --index-url https://download.pytorch.org/whl/cu121```
