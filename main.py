@@ -47,7 +47,6 @@ def get_user_input():
     Label(root, text=trs["choose_start_mode"]).pack(pady=10)
     Radiobutton(root, text=trs["new_training"], variable=start_choice, value="new").pack()
     Radiobutton(root, text=trs["resume_training"], variable=start_choice, value="resume").pack()
-    Radiobutton(root, text=trs["generate_from_save"], variable=start_choice, value="generate").pack()
 
     def submit():
         global n_epochs, batch_size, image_size_x, image_size_y, device_choice_value, start_choice_value
@@ -209,19 +208,6 @@ if os.path.isfile(model_dir) and start_choice == "resume":
     disc_opt.load_state_dict(checkpoint['disc_opt_state_dict'])
     start_epoch = checkpoint['epoch']
     train_model(start_epoch)
-elif os.path.isfile(model_dir) and start_choice == "generate":
-    # Загрузите сохраненную модель
-    checkpoint = torch.load(model_dir)
-    gen.load_state_dict(checkpoint['gen_state_dict'])
-    gen_opt.load_state_dict(checkpoint['gen_opt_state_dict'])
-    disc.load_state_dict(checkpoint['disc_state_dict'])
-    disc_opt.load_state_dict(checkpoint['disc_opt_state_dict'])
-    
-    # Генерируйте изображения из шума
-    noise = torch.randn(batch_size, z_dim, 1, 1).to(device)
-    with torch.no_grad():
-        fake = gen(noise).detach().cpu()
-    save_image(fake, f"{output_dir}/output_generated.png", nrow=3)
 else:
     print(trs["model_not_found"])
     train_model()
