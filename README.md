@@ -6,7 +6,7 @@ This project is an implementation of a Deep Convolutional Generative Adversarial
 
 1. Clone this repository.
 2. Install the necessary libraries.
-3. put.lang file for your language in the folder with main.py
+3. put .lang file for your language in the folder with main.py
 4. Run the script and enter the training parameters in the Tkinter window that opens.
 5. Click "Start" to begin training.
 
