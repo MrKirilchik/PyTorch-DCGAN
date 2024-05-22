@@ -15,6 +15,6 @@ Install the necessary libraries using the following commands:
 
 1 pip install nvidia-cudnn-cu12 pillow
 
-2.1 For Linuxㅤㅤ--> ```pip install torch torchvision```
-
-2.2 For Windows --> ```pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121```
+2.1⌈ For Linuxㅤㅤ--> ```pip install torch torchvision```
+ㅤ ⎥
+2.2⌊For Windows --> ```pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121```
