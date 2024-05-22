@@ -1,0 +1,22 @@
+{
+    "training_settings": "Training Settings",
+    "enter_epochs": "Enter number of epochs:",
+    "enter_batch_size": "Enter batch size:",
+    "enter_image_size_x": "Enter image size in X (in PX)",
+    "enter_image_size_y": "Enter image size in Y (in PX)",
+    "choose_device": "Choose a device for training:",
+    "choose_start_mode": "Choose to start training from beginning or from save:",
+    "new_training": "New Training",
+    "resume_training": "Resume from Save",
+    "start": "Start",
+    "info": "Information",
+    "dataset_not_found": "The 'dataset' folder was not found, creating a new one. Add data and click 'Start' again.",
+    "dataset_empty": "The 'dataset' folder is empty. Add data by dividing them into classes (otherwise you will get a tasty crash) and click 'Start' again.",
+    "training_completed": "Training Completed!",
+    "epoch": "Epoch",
+    "out_of": "out of",
+    "gen_loss": "generator loss",
+    "disc_loss": "discriminator loss",
+    "model_found": "Saved model found, loading...",
+    "model_not_found": "Saved model not found or new training selected."
+}
