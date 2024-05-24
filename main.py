@@ -6,6 +6,7 @@ from torchvision.datasets import ImageFolder
 from torchvision.utils import save_image
 from torch.utils.data import DataLoader
 from PIL import Image
+from gui import get_user_input, training_completed
 
 dataset_dir="dataset"
 output_dir = "output"
