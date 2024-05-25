@@ -1,4 +1,5 @@
 import os
+import json
 import torch
 from torch import nn
 from torchvision import transforms
@@ -7,6 +8,12 @@ from torchvision.utils import save_image
 from torch.utils.data import DataLoader
 from PIL import Image
 from gui import get_user_input, training_completed
+
+trs = {}
+for file in os.listdir():
+    if file.endswith(".lang"):
+        with open(file, 'r', encoding='utf-8') as f:
+            trs = json.load(f)
 
 dataset_dir="dataset"
 output_dir = "output"

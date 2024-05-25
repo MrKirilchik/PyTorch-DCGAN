@@ -4,7 +4,6 @@ from tkinter import Radiobutton, Label, Entry, Button, messagebox
 import json
 import main
 
-# Загрузка переводов из файла
 trs = {}
 for file in os.listdir():
     if file.endswith(".lang"):
