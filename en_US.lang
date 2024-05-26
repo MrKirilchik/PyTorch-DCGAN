@@ -1,9 +1,9 @@
 {
     "training_settings": "Training Settings",
-    "enter_epochs": "Enter number of epochs:",
-    "enter_batch_size": "Enter batch size:",
-    "enter_image_size_x": "Enter image size in X (in PX)",
-    "enter_image_size_y": "Enter image size in Y (in PX)",
+    "epochs": "Enter number of epochs:",
+    "batch_size": "Enter batch size:",
+    "image_size_x": "Enter image size in X (in PX)",
+    "image_size_y": "Enter image size in Y (in PX)",
     "choose_device": "Choose a device for training:",
     "choose_start_mode": "Choose to start training from beginning or from save:",
     "new_training": "New Training",

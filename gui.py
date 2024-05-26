@@ -22,10 +22,10 @@ def get_user_input():
     root.title(trs["training_settings"])
     root.resizable(False, False)
 
-    n_epochs_entry = create_label_and_entry(root, "enter_epochs")
-    batch_size_entry = create_label_and_entry(root, "enter_batch_size")
-    image_size_x_entry = create_label_and_entry(root, "enter_image_size_x")
-    image_size_y_entry = create_label_and_entry(root, "enter_image_size_y")
+    n_epochs_entry = create_label_and_entry(root, "epochs")
+    batch_size_entry = create_label_and_entry(root, "batch_size")
+    image_size_x_entry = create_label_and_entry(root, "image_size_x")
+    image_size_y_entry = create_label_and_entry(root, "image_size_y")
 
     device_choice = tk.StringVar(value="cpu")
     Label(root, text=trs["choose_device"]).pack(pady=10)

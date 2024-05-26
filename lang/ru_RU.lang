@@ -1,9 +1,9 @@
 {
     "training_settings": "Настройки обучения",
-    "enter_epochs": "Введите количество эпох:",
-    "enter_batch_size": "Введите размер батча:",
-    "enter_image_size_x": "Размер по X в PX",
-    "enter_image_size_y": "Размер по Y в PX",
+    "epochs": "Введите количество эпох:",
+    "batch_size": "Введите размер батча:",
+    "image_size_x": "Размер по X в PX",
+    "image_size_y": "Размер по Y в PX",
     "choose_device": "Выберите устройство для обучения:",
     "choose_start_mode": "Выберите, начать обучение с начала или с сохранения:",
     "new_training": "Новое обучение",
