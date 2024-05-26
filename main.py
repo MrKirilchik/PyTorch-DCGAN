@@ -134,7 +134,7 @@ def train_model(start_epoch=0):
                 'disc_state_dict': disc.state_dict(),
                 'disc_opt_state_dict': disc_opt.state_dict(),
             }, model_dir)
-            save_image(fake, f"{output_dir}/output_{epoch+10}.png", nrow=3)
+            save_image(fake, f"{output_dir}/output_{epoch}.png", nrow=3)
 
     training_completed()
 
